@@ -1,0 +1,20 @@
+﻿@model WebApp.Models.LoginModelView
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+<p>Membership Provider : @ViewBag.aspProvider</p>
+
+<form method="post" action="../../Controllers/AccountController.cs">
+    
+    <label for="email">Login : </label>
+    <input type="text" id="email" name="email" />
+
+    <label for="password">Password : </label>
+    <input type="password" id="password" name="password" />
+
+    <input type="submit" value="Envoyer" />
+</form>

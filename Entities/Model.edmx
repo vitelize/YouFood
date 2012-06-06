@@ -1,0 +1,1206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="RestaurantJeu" EntityType="Model.Store.RestaurantJeu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ZoneJeu" EntityType="Model.Store.ZoneJeu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TableJeu" EntityType="Model.Store.TableJeu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CommandeJeu" EntityType="Model.Store.CommandeJeu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PlatJeu1" EntityType="Model.Store.PlatJeu1" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CarteJeu" EntityType="Model.Store.CarteJeu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NotificationJeu" EntityType="Model.Store.NotificationJeu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Commande1Jeu" EntityType="Model.Store.Commande1Jeu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TypePlatJeu" EntityType="Model.Store.TypePlatJeu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SpecialiteJeu" EntityType="Model.Store.SpecialiteJeu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LogJeu" EntityType="Model.Store.LogJeu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TypeNotificationJeu" EntityType="Model.Store.TypeNotificationJeu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PlatEnCoursJeu" EntityType="Model.Store.PlatEnCoursJeu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PersonneJeu" EntityType="Model.Store.PersonneJeu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PersonneJeu_Serveur" EntityType="Model.Store.PersonneJeu_Serveur" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PersonneJeu_Manager" EntityType="Model.Store.PersonneJeu_Manager" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PersonneJeu_Cuisinier" EntityType="Model.Store.PersonneJeu_Cuisinier" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CommandePlat" EntityType="Model.Store.CommandePlat" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NotificationCommande" EntityType="Model.Store.NotificationCommande" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PlatCarte" EntityType="Model.Store.PlatCarte" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ZoneServeur" Association="Model.Store.ZoneServeur">
+      <End Role="Zone" EntitySet="ZoneJeu" />
+      <End Role="Serveur" EntitySet="PersonneJeu_Serveur" />
+    </AssociationSet>
+    <AssociationSet Name="ZoneTable" Association="Model.Store.ZoneTable">
+      <End Role="Zone" EntitySet="ZoneJeu" />
+      <End Role="Table" EntitySet="TableJeu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommandePlat_Commande" Association="Model.Store.FK_CommandePlat_Commande">
+      <End Role="Commande" EntitySet="CommandeJeu" />
+      <End Role="CommandePlat" EntitySet="CommandePlat" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommandePlat_Plat" Association="Model.Store.FK_CommandePlat_Plat">
+      <End Role="Plat" EntitySet="PlatJeu1" />
+      <End Role="CommandePlat" EntitySet="CommandePlat" />
+    </AssociationSet>
+    <AssociationSet Name="TableCommande" Association="Model.Store.TableCommande">
+      <End Role="Table" EntitySet="TableJeu" />
+      <End Role="Commande" EntitySet="CommandeJeu" />
+    </AssociationSet>
+    <AssociationSet Name="RestaurantZone" Association="Model.Store.RestaurantZone">
+      <End Role="Restaurant" EntitySet="RestaurantJeu" />
+      <End Role="Zone" EntitySet="ZoneJeu" />
+    </AssociationSet>
+    <AssociationSet Name="RestaurantManager" Association="Model.Store.RestaurantManager">
+      <End Role="Restaurant" EntitySet="RestaurantJeu" />
+      <End Role="Manager" EntitySet="PersonneJeu_Manager" />
+    </AssociationSet>
+    <AssociationSet Name="TypeNotificationNotification" Association="Model.Store.TypeNotificationNotification">
+      <End Role="TypeNotification" EntitySet="TypeNotificationJeu" />
+      <End Role="Notification" EntitySet="NotificationJeu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NotificationCommande_Notification" Association="Model.Store.FK_NotificationCommande_Notification">
+      <End Role="Notification" EntitySet="NotificationJeu" />
+      <End Role="NotificationCommande" EntitySet="NotificationCommande" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NotificationCommande_Commande" Association="Model.Store.FK_NotificationCommande_Commande">
+      <End Role="Commande" EntitySet="CommandeJeu" />
+      <End Role="NotificationCommande" EntitySet="NotificationCommande" />
+    </AssociationSet>
+    <AssociationSet Name="TypePlatPlat" Association="Model.Store.TypePlatPlat">
+      <End Role="TypePlat" EntitySet="TypePlatJeu" />
+      <End Role="Plat" EntitySet="PlatJeu1" />
+    </AssociationSet>
+    <AssociationSet Name="SpecialitePlat" Association="Model.Store.SpecialitePlat">
+      <End Role="Specialite" EntitySet="SpecialiteJeu" />
+      <End Role="Plat" EntitySet="PlatJeu1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlatCarte_Plat" Association="Model.Store.FK_PlatCarte_Plat">
+      <End Role="Plat" EntitySet="PlatJeu1" />
+      <End Role="PlatCarte" EntitySet="PlatCarte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlatCarte_Carte" Association="Model.Store.FK_PlatCarte_Carte">
+      <End Role="Carte" EntitySet="CarteJeu" />
+      <End Role="PlatCarte" EntitySet="PlatCarte" />
+    </AssociationSet>
+    <AssociationSet Name="PlatEnCoursCommande" Association="Model.Store.PlatEnCoursCommande">
+      <End Role="PlatEnCours" EntitySet="PlatEnCoursJeu" />
+      <End Role="Commande" EntitySet="CommandeJeu" />
+    </AssociationSet>
+    <AssociationSet Name="PlatEnCoursCuisinier" Association="Model.Store.PlatEnCoursCuisinier">
+      <End Role="PlatEnCours" EntitySet="PlatEnCoursJeu" />
+      <End Role="Cuisinier" EntitySet="PersonneJeu_Cuisinier" />
+    </AssociationSet>
+    <AssociationSet Name="SpecialiteCarte" Association="Model.Store.SpecialiteCarte">
+      <End Role="Specialite" EntitySet="SpecialiteJeu" />
+      <End Role="Carte" EntitySet="CarteJeu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Serveur_inherits_Personne" Association="Model.Store.FK_Serveur_inherits_Personne">
+      <End Role="Personne" EntitySet="PersonneJeu" />
+      <End Role="Serveur" EntitySet="PersonneJeu_Serveur" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Manager_inherits_Personne" Association="Model.Store.FK_Manager_inherits_Personne">
+      <End Role="Personne" EntitySet="PersonneJeu" />
+      <End Role="Manager" EntitySet="PersonneJeu_Manager" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cuisinier_inherits_Personne" Association="Model.Store.FK_Cuisinier_inherits_Personne">
+      <End Role="Personne" EntitySet="PersonneJeu" />
+      <End Role="Cuisinier" EntitySet="PersonneJeu_Cuisinier" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="RestaurantJeu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Adresse" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Capacite" Type="int" Nullable="false" />
+    <Property Name="Tel" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Manager_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ZoneJeu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RestaurantID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TableJeu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Capacite" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Numero" Type="int" Nullable="false" />
+    <Property Name="ZoneID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CommandeJeu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Reglement" Type="bit" Nullable="false" />
+    <Property Name="Prix" Type="float" Nullable="false" />
+    <Property Name="CuisinierID" Type="int" Nullable="false" />
+    <Property Name="TableID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PlatJeu1">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Prix" Type="float" Nullable="false" />
+    <Property Name="TypePlatID" Type="int" Nullable="false" />
+    <Property Name="SpecialiteID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CarteJeu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DateCreation" Type="datetime" Nullable="false" />
+    <Property Name="DateDerniereApplication" Type="datetime" Nullable="false" />
+    <Property Name="DateProchaineApplication" Type="datetime" Nullable="false" />
+    <Property Name="SpecialiteID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NotificationJeu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Fait" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Commande1Jeu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TypePlatJeu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SpecialiteJeu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Image" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LogJeu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="type" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TypeNotificationJeu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="datetime" Nullable="false" />
+    <Property Name="Notification_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PlatEnCoursJeu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CommandeID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CuisinierID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Commande_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PersonneJeu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nom" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Prenom" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PersonneJeu_Serveur">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ZoneID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PersonneJeu_Manager">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="RestaurantID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PersonneJeu_Cuisinier">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="PlatEnCours_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CommandePlat">
+    <Key>
+      <PropertyRef Name="Commande_ID" />
+      <PropertyRef Name="Plat_ID" />
+    </Key>
+    <Property Name="Commande_ID" Type="int" Nullable="false" />
+    <Property Name="Plat_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NotificationCommande">
+    <Key>
+      <PropertyRef Name="Notification_ID" />
+      <PropertyRef Name="Commande_ID" />
+    </Key>
+    <Property Name="Notification_ID" Type="int" Nullable="false" />
+    <Property Name="Commande_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PlatCarte">
+    <Key>
+      <PropertyRef Name="Plat_ID" />
+      <PropertyRef Name="Carte_ID" />
+    </Key>
+    <Property Name="Plat_ID" Type="int" Nullable="false" />
+    <Property Name="Carte_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="ZoneServeur">
+    <End Role="Zone" Type="Model.Store.ZoneJeu" Multiplicity="1" />
+    <End Role="Serveur" Type="Model.Store.PersonneJeu_Serveur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zone">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Serveur">
+        <PropertyRef Name="ZoneID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ZoneTable">
+    <End Role="Zone" Type="Model.Store.ZoneJeu" Multiplicity="1" />
+    <End Role="Table" Type="Model.Store.TableJeu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zone">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Table">
+        <PropertyRef Name="ZoneID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TableCommande">
+    <End Role="Table" Type="Model.Store.TableJeu" Multiplicity="1" />
+    <End Role="Commande" Type="Model.Store.CommandeJeu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Commande">
+        <PropertyRef Name="TableID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RestaurantZone">
+    <End Role="Restaurant" Type="Model.Store.RestaurantJeu" Multiplicity="1" />
+    <End Role="Zone" Type="Model.Store.ZoneJeu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurant">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Zone">
+        <PropertyRef Name="RestaurantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RestaurantManager">
+    <End Role="Restaurant" Type="Model.Store.RestaurantJeu" Multiplicity="*" />
+    <End Role="Manager" Type="Model.Store.PersonneJeu_Manager" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Manager">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Restaurant">
+        <PropertyRef Name="Manager_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TypeNotificationNotification">
+    <End Role="TypeNotification" Type="Model.Store.TypeNotificationJeu" Multiplicity="*" />
+    <End Role="Notification" Type="Model.Store.NotificationJeu" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Notification">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TypeNotification">
+        <PropertyRef Name="Notification_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TypePlatPlat">
+    <End Role="TypePlat" Type="Model.Store.TypePlatJeu" Multiplicity="1" />
+    <End Role="Plat" Type="Model.Store.PlatJeu1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypePlat">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Plat">
+        <PropertyRef Name="TypePlatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SpecialitePlat">
+    <End Role="Specialite" Type="Model.Store.SpecialiteJeu" Multiplicity="1" />
+    <End Role="Plat" Type="Model.Store.PlatJeu1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specialite">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Plat">
+        <PropertyRef Name="SpecialiteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PlatEnCoursCommande">
+    <End Role="PlatEnCours" Type="Model.Store.PlatEnCoursJeu" Multiplicity="*" />
+    <End Role="Commande" Type="Model.Store.CommandeJeu" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Commande">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PlatEnCours">
+        <PropertyRef Name="Commande_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PlatEnCoursCuisinier">
+    <End Role="PlatEnCours" Type="Model.Store.PlatEnCoursJeu" Multiplicity="1" />
+    <End Role="Cuisinier" Type="Model.Store.PersonneJeu_Cuisinier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PlatEnCours">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Cuisinier">
+        <PropertyRef Name="PlatEnCours_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SpecialiteCarte">
+    <End Role="Specialite" Type="Model.Store.SpecialiteJeu" Multiplicity="1" />
+    <End Role="Carte" Type="Model.Store.CarteJeu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specialite">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Carte">
+        <PropertyRef Name="SpecialiteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommandePlat_Commande">
+    <End Role="Commande" Type="Model.Store.CommandeJeu" Multiplicity="1" />
+    <End Role="CommandePlat" Type="Model.Store.CommandePlat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Commande">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CommandePlat">
+        <PropertyRef Name="Commande_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommandePlat_Plat">
+    <End Role="CommandePlat" Type="Model.Store.CommandePlat" Multiplicity="*" />
+    <End Role="Plat" Type="Model.Store.PlatJeu1" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Plat">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CommandePlat">
+        <PropertyRef Name="Plat_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NotificationCommande_Notification">
+    <End Role="Notification" Type="Model.Store.NotificationJeu" Multiplicity="1" />
+    <End Role="NotificationCommande" Type="Model.Store.NotificationCommande" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Notification">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NotificationCommande">
+        <PropertyRef Name="Notification_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NotificationCommande_Commande">
+    <End Role="NotificationCommande" Type="Model.Store.NotificationCommande" Multiplicity="*" />
+    <End Role="Commande" Type="Model.Store.CommandeJeu" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Commande">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NotificationCommande">
+        <PropertyRef Name="Commande_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlatCarte_Plat">
+    <End Role="Plat" Type="Model.Store.PlatJeu1" Multiplicity="1" />
+    <End Role="PlatCarte" Type="Model.Store.PlatCarte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Plat">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PlatCarte">
+        <PropertyRef Name="Plat_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlatCarte_Carte">
+    <End Role="PlatCarte" Type="Model.Store.PlatCarte" Multiplicity="*" />
+    <End Role="Carte" Type="Model.Store.CarteJeu" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Carte">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PlatCarte">
+        <PropertyRef Name="Carte_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Serveur_inherits_Personne">
+    <End Role="Personne" Type="Model.Store.PersonneJeu" Multiplicity="1" />
+    <End Role="Serveur" Type="Model.Store.PersonneJeu_Serveur" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Personne">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Serveur">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Manager_inherits_Personne">
+    <End Role="Personne" Type="Model.Store.PersonneJeu" Multiplicity="1" />
+    <End Role="Manager" Type="Model.Store.PersonneJeu_Manager" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Personne">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Manager">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cuisinier_inherits_Personne">
+    <End Role="Personne" Type="Model.Store.PersonneJeu" Multiplicity="1" />
+    <End Role="Cuisinier" Type="Model.Store.PersonneJeu_Cuisinier" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Personne">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Cuisinier">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="ModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="RestaurantJeu" EntityType="Model.Restaurant" />
+          <EntitySet Name="ZoneJeu" EntityType="Model.Zone" />
+          <EntitySet Name="TableJeu" EntityType="Model.Table" />
+          <EntitySet Name="CommandeJeu" EntityType="Model.Commande" />
+          <EntitySet Name="PlatJeu1" EntityType="Model.Plat" />
+          <EntitySet Name="CarteJeu" EntityType="Model.Carte" />
+          <EntitySet Name="NotificationJeu" EntityType="Model.Notification" />
+          <EntitySet Name="Commande1Jeu" EntityType="Model.Commande1" />
+          <EntitySet Name="TypePlatJeu" EntityType="Model.TypePlat" />
+          <EntitySet Name="SpecialiteJeu" EntityType="Model.Specialite" />
+          <AssociationSet Name="ZoneServeur" Association="Model.ZoneServeur">
+            <End EntitySet="ZoneJeu" Role="Zone" />
+          </AssociationSet>
+          <AssociationSet Name="ZoneTable" Association="Model.ZoneTable">
+            <End Role="Zone" EntitySet="ZoneJeu" />
+            <End Role="Table" EntitySet="TableJeu" />
+          </AssociationSet>
+          <AssociationSet Name="CommandePlat" Association="Model.CommandePlat">
+            <End Role="Commande" EntitySet="CommandeJeu" />
+            <End Role="Plat" EntitySet="PlatJeu1" />
+          </AssociationSet>
+          <AssociationSet Name="TableCommande" Association="Model.TableCommande">
+            <End Role="Table" EntitySet="TableJeu" />
+            <End Role="Commande" EntitySet="CommandeJeu" />
+          </AssociationSet>
+          <AssociationSet Name="RestaurantZone" Association="Model.RestaurantZone">
+            <End Role="Restaurant" EntitySet="RestaurantJeu" />
+            <End Role="Zone" EntitySet="ZoneJeu" />
+          </AssociationSet>
+          <AssociationSet Name="RestaurantManager" Association="Model.RestaurantManager">
+            <End EntitySet="RestaurantJeu" Role="Restaurant" />
+            <End EntitySet="PersonneJeu" Role="Manager" />
+          </AssociationSet>
+          <EntitySet Name="LogJeu" EntityType="Model.Log" />
+          <EntitySet Name="TypeNotificationJeu" EntityType="Model.TypeNotification" />
+          <AssociationSet Name="TypeNotificationNotification" Association="Model.TypeNotificationNotification">
+            <End Role="TypeNotification" EntitySet="TypeNotificationJeu" />
+            <End Role="Notification" EntitySet="NotificationJeu" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationCommande" Association="Model.NotificationCommande">
+            <End Role="Notification" EntitySet="NotificationJeu" />
+            <End Role="Commande" EntitySet="CommandeJeu" />
+          </AssociationSet>
+          <AssociationSet Name="TypePlatPlat" Association="Model.TypePlatPlat">
+            <End Role="TypePlat" EntitySet="TypePlatJeu" />
+            <End Role="Plat" EntitySet="PlatJeu1" />
+          </AssociationSet>
+          <AssociationSet Name="SpecialitePlat" Association="Model.SpecialitePlat">
+            <End Role="Specialite" EntitySet="SpecialiteJeu" />
+            <End Role="Plat" EntitySet="PlatJeu1" />
+          </AssociationSet>
+          <AssociationSet Name="PlatCarte" Association="Model.PlatCarte">
+            <End Role="Plat" EntitySet="PlatJeu1" />
+            <End Role="Carte" EntitySet="CarteJeu" />
+          </AssociationSet>
+          <EntitySet Name="PlatEnCoursJeu" EntityType="Model.PlatEnCours" />
+          <AssociationSet Name="PlatEnCoursCommande" Association="Model.PlatEnCoursCommande">
+            <End Role="PlatEnCours" EntitySet="PlatEnCoursJeu" />
+            <End Role="Commande" EntitySet="CommandeJeu" />
+          </AssociationSet>
+          <AssociationSet Name="PlatEnCoursCuisinier" Association="Model.PlatEnCoursCuisinier">
+            <End EntitySet="PlatEnCoursJeu" Role="PlatEnCours" />
+            <End EntitySet="PersonneJeu" Role="Cuisinier" />
+          </AssociationSet>
+          <AssociationSet Name="SpecialiteCarte" Association="Model.SpecialiteCarte">
+            <End Role="Specialite" EntitySet="SpecialiteJeu" />
+            <End Role="Carte" EntitySet="CarteJeu" />
+          </AssociationSet>
+          <EntitySet Name="PersonneJeu" EntityType="Model.Personne" />
+          </EntityContainer>
+        <EntityType Name="Restaurant">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="String" Name="Adresse" Nullable="false" />
+          <Property Type="Int32" Name="Capacite" Nullable="false" />
+          <Property Type="String" Name="Tel" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="false" />
+          <NavigationProperty Name="Zone" Relationship="Model.RestaurantZone" FromRole="Restaurant" ToRole="Zone" />
+          <NavigationProperty Name="Manager" Relationship="Model.RestaurantManager" FromRole="Restaurant" ToRole="Manager" />
+        </EntityType>
+        <EntityType Name="Zone">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <NavigationProperty Name="Serveur" Relationship="Model.ZoneServeur" FromRole="Zone" ToRole="Serveur" />
+          <NavigationProperty Name="Table" Relationship="Model.ZoneTable" FromRole="Zone" ToRole="Table" />
+          <NavigationProperty Name="Restaurant" Relationship="Model.RestaurantZone" FromRole="Zone" ToRole="Restaurant" />
+          <Property Type="Int32" Name="RestaurantID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Capacite" Nullable="false" />
+          <Property Type="Int32" Name="Numero" Nullable="false" />
+          <NavigationProperty Name="Zone" Relationship="Model.ZoneTable" FromRole="Table" ToRole="Zone" />
+          <Property Type="Int32" Name="ZoneID" Nullable="false" />
+          <NavigationProperty Name="Commande" Relationship="Model.TableCommande" FromRole="Table" ToRole="Commande" />
+        </EntityType>
+        <EntityType Name="Serveur" BaseType="Model.Personne">
+          <NavigationProperty Name="Zone" Relationship="Model.ZoneServeur" FromRole="Serveur" ToRole="Zone" />
+          <Property Name="ZoneID" Nullable="false" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Cuisinier" BaseType="Model.Personne">
+          <NavigationProperty Name="PlatEnCours" Relationship="Model.PlatEnCoursCuisinier" FromRole="Cuisinier" ToRole="PlatEnCours" />
+        </EntityType>
+        <EntityType Name="Commande">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+          <Property Type="Boolean" Name="Reglement" Nullable="false" />
+          <Property Type="Double" Name="Prix" Nullable="false" />
+          <Property Type="Int32" Name="CuisinierID" Nullable="false" />
+          <NavigationProperty Name="Plat" Relationship="Model.CommandePlat" FromRole="Commande" ToRole="Plat" />
+          <NavigationProperty Name="Table" Relationship="Model.TableCommande" FromRole="Commande" ToRole="Table" />
+          <Property Type="Int32" Name="TableID" Nullable="false" />
+          <NavigationProperty Name="Notification" Relationship="Model.NotificationCommande" FromRole="Commande" ToRole="Notification" />
+          <NavigationProperty Name="PlatEnCours" Relationship="Model.PlatEnCoursCommande" FromRole="Commande" ToRole="PlatEnCours" />
+        </EntityType>
+        <EntityType Name="Plat">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nom" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="Double" Name="Prix" Nullable="false" />
+          <NavigationProperty Name="Commande" Relationship="Model.CommandePlat" FromRole="Plat" ToRole="Commande" />
+          <NavigationProperty Name="TypePlat" Relationship="Model.TypePlatPlat" FromRole="Plat" ToRole="TypePlat" />
+          <Property Type="Int32" Name="TypePlatID" Nullable="false" />
+          <NavigationProperty Name="Specialite" Relationship="Model.SpecialitePlat" FromRole="Plat" ToRole="Specialite" />
+          <Property Type="Int32" Name="SpecialiteID" Nullable="false" />
+          <NavigationProperty Name="Carte" Relationship="Model.PlatCarte" FromRole="Plat" ToRole="Carte" />
+        </EntityType>
+        <EntityType Name="Carte">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nom" Nullable="false" />
+          <Property Type="DateTime" Name="DateCreation" Nullable="false" />
+          <Property Type="DateTime" Name="DateDerniereApplication" Nullable="false" />
+          <Property Type="DateTime" Name="DateProchaineApplication" Nullable="false" />
+          <NavigationProperty Name="Plat" Relationship="Model.PlatCarte" FromRole="Carte" ToRole="Plat" />
+          <NavigationProperty Name="Specialite" Relationship="Model.SpecialiteCarte" FromRole="Carte" ToRole="Specialite" />
+          <Property Type="Int32" Name="SpecialiteID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+          <Property Type="Boolean" Name="Fait" Nullable="false" />
+          <NavigationProperty Name="TypeNotification" Relationship="Model.TypeNotificationNotification" FromRole="Notification" ToRole="TypeNotification" />
+          <NavigationProperty Name="Commande" Relationship="Model.NotificationCommande" FromRole="Notification" ToRole="Commande" />
+        </EntityType>
+        <EntityType Name="Commande1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TypePlat">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Plat" Relationship="Model.TypePlatPlat" FromRole="TypePlat" ToRole="Plat" />
+          <Property Type="String" Name="Description" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Specialite">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nom" Nullable="false" />
+          <Property Type="String" Name="Image" Nullable="false" />
+          <NavigationProperty Name="Plat" Relationship="Model.SpecialitePlat" FromRole="Specialite" ToRole="Plat" />
+          <NavigationProperty Name="Carte" Relationship="Model.SpecialiteCarte" FromRole="Specialite" ToRole="Carte" />
+        </EntityType>
+        <EntityType Name="Manager" BaseType="Model.Personne">
+          <NavigationProperty Name="Restaurant" Relationship="Model.RestaurantManager" FromRole="Manager" ToRole="Restaurant" />
+          <Property Name="RestaurantID" Nullable="false" Type="Int32" />
+        </EntityType>
+        <Association Name="ZoneServeur">
+          <End Type="Model.Zone" Multiplicity="1" Role="Zone" />
+          <End Type="Model.Serveur" Multiplicity="*" Role="Serveur" />
+          <ReferentialConstraint>
+            <Principal Role="Zone">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Serveur">
+              <PropertyRef Name="ZoneID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ZoneTable">
+          <End Type="Model.Zone" Role="Zone" Multiplicity="1" />
+          <End Type="Model.Table" Role="Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zone">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Table">
+              <PropertyRef Name="ZoneID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CommandePlat">
+          <End Type="Model.Commande" Role="Commande" Multiplicity="*" />
+          <End Type="Model.Plat" Role="Plat" Multiplicity="*" />
+        </Association>
+        <Association Name="TableCommande">
+          <End Type="Model.Table" Role="Table" Multiplicity="1" />
+          <End Type="Model.Commande" Role="Commande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Commande">
+              <PropertyRef Name="TableID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RestaurantZone">
+          <End Type="Model.Restaurant" Role="Restaurant" Multiplicity="1" />
+          <End Type="Model.Zone" Role="Zone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurant">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Zone">
+              <PropertyRef Name="RestaurantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RestaurantManager">
+          <End Type="Model.Restaurant" Multiplicity="1" Role="Restaurant" />
+          <End Type="Model.Manager" Multiplicity="1" Role="Manager" />
+        </Association>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="type" Nullable="false" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeNotification">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="Name" Nullable="false" />
+          <NavigationProperty Name="Notification" Relationship="Model.TypeNotificationNotification" FromRole="TypeNotification" ToRole="Notification" />
+        </EntityType>
+        <Association Name="TypeNotificationNotification">
+          <End Type="Model.TypeNotification" Role="TypeNotification" Multiplicity="1" />
+          <End Type="Model.Notification" Role="Notification" Multiplicity="1" />
+        </Association>
+        <Association Name="NotificationCommande">
+          <End Type="Model.Notification" Role="Notification" Multiplicity="*" />
+          <End Type="Model.Commande" Role="Commande" Multiplicity="*" />
+        </Association>
+        <Association Name="TypePlatPlat">
+          <End Type="Model.TypePlat" Role="TypePlat" Multiplicity="1" />
+          <End Type="Model.Plat" Role="Plat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypePlat">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Plat">
+              <PropertyRef Name="TypePlatID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SpecialitePlat">
+          <End Type="Model.Specialite" Role="Specialite" Multiplicity="1" />
+          <End Type="Model.Plat" Role="Plat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specialite">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Plat">
+              <PropertyRef Name="SpecialiteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PlatCarte">
+          <End Type="Model.Plat" Role="Plat" Multiplicity="*" />
+          <End Type="Model.Carte" Role="Carte" Multiplicity="*" />
+        </Association>
+        <EntityType Name="PlatEnCours">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Commande" Relationship="Model.PlatEnCoursCommande" FromRole="PlatEnCours" ToRole="Commande" />
+          <NavigationProperty Name="Cuisinier" Relationship="Model.PlatEnCoursCuisinier" FromRole="PlatEnCours" ToRole="Cuisinier" />
+          <Property Type="String" Name="CommandeID" Nullable="false" />
+          <Property Type="String" Name="CuisinierID" Nullable="false" />
+        </EntityType>
+        <Association Name="PlatEnCoursCommande">
+          <End Type="Model.PlatEnCours" Role="PlatEnCours" Multiplicity="*" />
+          <End Type="Model.Commande" Role="Commande" Multiplicity="1" />
+        </Association>
+        <Association Name="PlatEnCoursCuisinier">
+          <End Type="Model.PlatEnCours" Multiplicity="1" Role="PlatEnCours" />
+          <End Type="Model.Cuisinier" Multiplicity="0..1" Role="Cuisinier" />
+        </Association>
+        <Association Name="SpecialiteCarte">
+          <End Type="Model.Specialite" Role="Specialite" Multiplicity="1" />
+          <End Type="Model.Carte" Role="Carte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specialite">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Carte">
+              <PropertyRef Name="SpecialiteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Personne">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Email" Nullable="false" />
+          <Property Type="String" Name="Password" Nullable="false" />
+          <Property Type="String" Name="Nom" Nullable="false" />
+          <Property Type="String" Name="Prenom" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ModelContainer">
+    <EntitySetMapping Name="RestaurantJeu">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Restaurant)">
+        <MappingFragment StoreEntitySet="RestaurantJeu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+          <ScalarProperty Name="Capacite" ColumnName="Capacite" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZoneJeu">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Zone)">
+        <MappingFragment StoreEntitySet="ZoneJeu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="RestaurantID" ColumnName="RestaurantID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TableJeu">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Table)">
+        <MappingFragment StoreEntitySet="TableJeu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Capacite" ColumnName="Capacite" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="ZoneID" ColumnName="ZoneID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommandeJeu">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Commande)">
+        <MappingFragment StoreEntitySet="CommandeJeu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Reglement" ColumnName="Reglement" />
+          <ScalarProperty Name="Prix" ColumnName="Prix" />
+          <ScalarProperty Name="CuisinierID" ColumnName="CuisinierID" />
+          <ScalarProperty Name="TableID" ColumnName="TableID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlatJeu1">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Plat)">
+        <MappingFragment StoreEntitySet="PlatJeu1">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Prix" ColumnName="Prix" />
+          <ScalarProperty Name="TypePlatID" ColumnName="TypePlatID" />
+          <ScalarProperty Name="SpecialiteID" ColumnName="SpecialiteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarteJeu">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Carte)">
+        <MappingFragment StoreEntitySet="CarteJeu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="DateCreation" ColumnName="DateCreation" />
+          <ScalarProperty Name="DateDerniereApplication" ColumnName="DateDerniereApplication" />
+          <ScalarProperty Name="DateProchaineApplication" ColumnName="DateProchaineApplication" />
+          <ScalarProperty Name="SpecialiteID" ColumnName="SpecialiteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotificationJeu">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Notification)">
+        <MappingFragment StoreEntitySet="NotificationJeu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Fait" ColumnName="Fait" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Commande1Jeu">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Commande1)">
+        <MappingFragment StoreEntitySet="Commande1Jeu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypePlatJeu">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.TypePlat)">
+        <MappingFragment StoreEntitySet="TypePlatJeu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpecialiteJeu">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Specialite)">
+        <MappingFragment StoreEntitySet="SpecialiteJeu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LogJeu">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Log)">
+        <MappingFragment StoreEntitySet="LogJeu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeNotificationJeu">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.TypeNotification)">
+        <MappingFragment StoreEntitySet="TypeNotificationJeu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlatEnCoursJeu">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.PlatEnCours)">
+        <MappingFragment StoreEntitySet="PlatEnCoursJeu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CommandeID" ColumnName="CommandeID" />
+          <ScalarProperty Name="CuisinierID" ColumnName="CuisinierID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PersonneJeu">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Personne)">
+        <MappingFragment StoreEntitySet="PersonneJeu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Serveur)">
+        <MappingFragment StoreEntitySet="PersonneJeu_Serveur">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ZoneID" ColumnName="ZoneID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Manager)">
+        <MappingFragment StoreEntitySet="PersonneJeu_Manager">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RestaurantID" ColumnName="RestaurantID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Cuisinier)">
+        <MappingFragment StoreEntitySet="PersonneJeu_Cuisinier">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="CommandePlat" TypeName="Model.CommandePlat" StoreEntitySet="CommandePlat">
+      <EndProperty Name="Commande">
+        <ScalarProperty Name="ID" ColumnName="Commande_ID" />
+      </EndProperty>
+      <EndProperty Name="Plat">
+        <ScalarProperty Name="ID" ColumnName="Plat_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RestaurantManager" TypeName="Model.RestaurantManager" StoreEntitySet="RestaurantJeu">
+      <EndProperty Name="Manager">
+        <ScalarProperty Name="ID" ColumnName="Manager_ID" />
+      </EndProperty>
+      <EndProperty Name="Restaurant">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TypeNotificationNotification" TypeName="Model.TypeNotificationNotification" StoreEntitySet="TypeNotificationJeu">
+      <EndProperty Name="Notification">
+        <ScalarProperty Name="ID" ColumnName="Notification_ID" />
+      </EndProperty>
+      <EndProperty Name="TypeNotification">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="NotificationCommande" TypeName="Model.NotificationCommande" StoreEntitySet="NotificationCommande">
+      <EndProperty Name="Notification">
+        <ScalarProperty Name="ID" ColumnName="Notification_ID" />
+      </EndProperty>
+      <EndProperty Name="Commande">
+        <ScalarProperty Name="ID" ColumnName="Commande_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PlatCarte" TypeName="Model.PlatCarte" StoreEntitySet="PlatCarte">
+      <EndProperty Name="Plat">
+        <ScalarProperty Name="ID" ColumnName="Plat_ID" />
+      </EndProperty>
+      <EndProperty Name="Carte">
+        <ScalarProperty Name="ID" ColumnName="Carte_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PlatEnCoursCommande" TypeName="Model.PlatEnCoursCommande" StoreEntitySet="PlatEnCoursJeu">
+      <EndProperty Name="Commande">
+        <ScalarProperty Name="ID" ColumnName="Commande_ID" />
+      </EndProperty>
+      <EndProperty Name="PlatEnCours">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PlatEnCoursCuisinier" TypeName="Model.PlatEnCoursCuisinier" StoreEntitySet="PersonneJeu_Cuisinier">
+      <EndProperty Name="PlatEnCours">
+        <ScalarProperty Name="ID" ColumnName="PlatEnCours_ID" />
+      </EndProperty>
+      <EndProperty Name="Cuisinier">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="Model" ZoomLevel="101" >
+        <EntityTypeShape EntityType="Model.Restaurant" Width="1.5" PointX="2" PointY="0.5" Height="2.5571907552083331" />
+        <EntityTypeShape EntityType="Model.Zone" Width="1.5" PointX="4.25" PointY="0.5" Height="1.9802864583333331" />
+        <EntityTypeShape EntityType="Model.Table" Width="1.5" PointX="4" PointY="5.875" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="Model.Serveur" PointX="6.625" PointY="3.375" Width="1.5" Height="1.4033821614583335" />
+        <EntityTypeShape EntityType="Model.Cuisinier" PointX="10.75" PointY="3.375" Width="1.5" Height="1.2110807291666665" />
+        <EntityTypeShape EntityType="Model.Commande" Width="1.5" PointX="6.125" PointY="5.875" Height="2.9417936197916656" />
+        <EntityTypeShape EntityType="Model.Plat" Width="1.5" PointX="6.125" PointY="9.5" Height="2.9417936197916656" />
+        <EntityTypeShape EntityType="Model.Carte" Width="1.5" PointX="6.125" PointY="13" Height="2.5571907552083335" />
+        <EntityTypeShape EntityType="Model.Notification" Width="1.5" PointX="10.25" PointY="6.625" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="Model.Commande1" PointX="6.3005924459083911" PointY="24.025262322288594" Width="1.5" />
+        <EntityTypeShape EntityType="Model.TypePlat" Width="1.5" PointX="8.125" PointY="8.125" Height="1.4279589843749996" />
+        <EntityTypeShape EntityType="Model.Specialite" Width="1.5" PointX="8.125" PointY="10.5" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="Model.Manager" PointX="8.625" PointY="3.375" Width="1.5" Height="1.4033821614583335" />
+        <AssociationConnector Association="Model.ZoneServeur">
+          <ConnectorPoint PointX="5.75" PointY="1.5862939453125" />
+          <ConnectorPoint PointX="7.375" PointY="1.5862939453125" />
+          <ConnectorPoint PointX="7.375" PointY="3.375" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.ZoneTable">
+          <ConnectorPoint PointX="4.875" PointY="2.672587890625" />
+          <ConnectorPoint PointX="4.875" PointY="5.875" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.CommandePlat">
+          <ConnectorPoint PointX="6.875" PointY="8.8167936197916656" />
+          <ConnectorPoint PointX="6.875" PointY="9.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.TableCommande">
+          <ConnectorPoint PointX="5.5" PointY="6.9612939453125" />
+          <ConnectorPoint PointX="6.125" PointY="6.9612939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.RestaurantZone">
+          <ConnectorPoint PointX="3.5" PointY="1.5862939453125" />
+          <ConnectorPoint PointX="4.25" PointY="1.5862939453125" />
+        </AssociationConnector>
+        <AssociationConnector ManuallyRouted="true" Association="Model.RestaurantManager">
+          <ConnectorPoint PointX="2.75" PointY="3.0571907552083331" />
+          <ConnectorPoint PointX="2.75" PointY="5.0783821614583342" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="5.0783821614583333" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="5.0783821614583342" />
+          <ConnectorPoint PointX="9.4758001706589141" PointY="5.0783821614583342" />
+          <ConnectorPoint PointX="9.4758001706589141" PointY="4.7783821614583335" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Model.Log" Width="1.5" PointX="11.25" PointY="9.125" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="Model.TypeNotification" Width="1.5" PointX="12.5" PointY="6" Height="1.5956835937499996" />
+        <AssociationConnector Association="Model.TypeNotificationNotification">
+          <ConnectorPoint PointX="12.5" PointY="7.110341796875" />
+          <ConnectorPoint PointX="11.75" PointY="7.110341796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.NotificationCommande">
+          <ConnectorPoint PointX="10.25" PointY="7.7401432291666659" />
+          <ConnectorPoint PointX="7.625" PointY="7.7401432291666659" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.TypePlatPlat">
+          <ConnectorPoint PointX="8.125" PointY="8.922841796875" />
+          <ConnectorPoint PointX="7.885" PointY="8.922841796875" />
+          <ConnectorPoint PointX="7.885" PointY="9.26" />
+          <ConnectorPoint PointX="7.281252" PointY="9.26" />
+          <ConnectorPoint PointX="7.281252" PointY="9.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.SpecialitePlat">
+          <ConnectorPoint PointX="8.125" PointY="11.470896809895834" />
+          <ConnectorPoint PointX="7.625" PointY="11.470896809895834" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.PlatCarte">
+          <ConnectorPoint PointX="6.875" PointY="12.441793619791666" />
+          <ConnectorPoint PointX="6.875" PointY="13" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Model.PlatEnCours" Width="1.5" PointX="8.5" PointY="5.375" Height="1.9802864583333326" />
+        <AssociationConnector Association="Model.PlatEnCoursCommande">
+          <ConnectorPoint PointX="8.5" PointY="6.6151432291666659" />
+          <ConnectorPoint PointX="7.625" PointY="6.6151432291666659" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.PlatEnCoursCuisinier">
+          <ConnectorPoint PointX="10" PointY="5.96875" />
+          <ConnectorPoint PointX="10.104166666666666" PointY="5.9687499999999991" />
+          <ConnectorPoint PointX="10.270833333333334" PointY="5.96875" />
+          <ConnectorPoint PointX="12.03125" PointY="5.96875" />
+          <ConnectorPoint PointX="12.03125" PointY="4.5860807291666665" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.SpecialiteCarte">
+          <ConnectorPoint PointX="8.1249999999999982" PointY="12.480286458333334" />
+          <ConnectorPoint PointX="7.625" PointY="13" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Model.Personne" Width="1.5" PointX="8.625" PointY="0.5" Height="1.9802864583333331" />
+        <InheritanceConnector EntityType="Model.Serveur">
+          <ConnectorPoint PointX="9.375" PointY="2.4802864583333331" />
+          <ConnectorPoint PointX="9.375" PointY="3" />
+          <ConnectorPoint PointX="7.375" PointY="3" />
+          <ConnectorPoint PointX="7.375" PointY="3.375" />
+        </InheritanceConnector>
+        <InheritanceConnector EntityType="Model.Cuisinier">
+          <ConnectorPoint PointX="9.375" PointY="2.4802864583333331" />
+          <ConnectorPoint PointX="9.375" PointY="3" />
+          <ConnectorPoint PointX="11.5" PointY="3" />
+          <ConnectorPoint PointX="11.5" PointY="3.375" />
+        </InheritanceConnector>
+        <InheritanceConnector EntityType="Model.Manager">
+          <ConnectorPoint PointX="9.375" PointY="2.4802864583333331" />
+          <ConnectorPoint PointX="9.375" PointY="3.375" />
+        </InheritanceConnector>
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
