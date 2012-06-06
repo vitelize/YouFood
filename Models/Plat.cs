@@ -12,5 +12,6 @@ namespace Models
         public int Prix { get; set; }
         public int TypePlatID { get; set; }
         public int SpecialiteID { get; set; }
+        public bool Servi { get; set; }
     }
 }
