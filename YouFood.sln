@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAO", "DAO", "{42A01CE3-26E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{0E2A6933-6738-442D-AA16-2AFF3002318A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{D51617A1-3D2B-4714-B986-E513C64E7CD6}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -37,6 +39,10 @@ Global
 		{0E2A6933-6738-442D-AA16-2AFF3002318A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E2A6933-6738-442D-AA16-2AFF3002318A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E2A6933-6738-442D-AA16-2AFF3002318A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D51617A1-3D2B-4714-B986-E513C64E7CD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D51617A1-3D2B-4714-B986-E513C64E7CD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D51617A1-3D2B-4714-B986-E513C64E7CD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D51617A1-3D2B-4714-B986-E513C64E7CD6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,5 +50,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{09D3CD46-98EF-44E4-8871-86D1A43C7F0F} = {42A01CE3-26E4-4666-B693-032BADC64B00}
 		{0E2A6933-6738-442D-AA16-2AFF3002318A} = {42A01CE3-26E4-4666-B693-032BADC64B00}
+		{D51617A1-3D2B-4714-B986-E513C64E7CD6} = {42A01CE3-26E4-4666-B693-032BADC64B00}
 	EndGlobalSection
 EndGlobal

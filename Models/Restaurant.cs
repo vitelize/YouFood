@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Models
 {
@@ -15,5 +13,7 @@ namespace Models
         public string Email { get; set; }
 
         //Navigation
+        public List<Zone> Zones { get; set; }
+        public Manager Responsable { get; set; }
     }
 }

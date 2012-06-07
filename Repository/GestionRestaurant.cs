@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Poco; 
+using DAL;
+using Models;
 
 namespace Repository
 {
-    public static class GestionRestaurant
+    public static class Restaurant_Repo
     {
         public static void Ajouter(Restaurant restaurant)
         {
             try
             {
-                using (var context = new ModelContainer())
+                using (Context db = new Context())
                 {
-                    context.RestaurantJeu.AddObject(restaurant);
-                    context.SaveChanges();
+                    db.Restaurants.Add(restaurant);
+                    db.SaveChanges();
                 }
             }
             catch (Exception e)
@@ -28,10 +29,10 @@ namespace Repository
         {
             try
             {
-                using (var context = new ModelContainer())
+                using (Context db = new Context())
                 {
-                    context.RestaurantJeu.DeleteObject(restaurant);
-                    context.SaveChanges();
+                    db.Restaurants.Remove(restaurant);
+                    db.SaveChanges();
                 }
             }
 
@@ -45,17 +46,17 @@ namespace Repository
         {
             Restaurant restaurant = null;
             
-            using (var context = new ModelContainer())
+            using (Context db = new Context())
             {
-                GestionRestaurant.RecupererParID(restaurantId);   
+                Restaurant_Repo.RecupererParID(restaurantId);   
             
                 if (restaurant == null)
                     throw new Exception ("Erreur Respository : SupprimerRestaurant : ");
 
                     try
                     {
-                        context.DeleteObject(restaurant);
-                        context.SaveChanges();
+                        db.Restaurants.Remove(restaurant);
+                        db.SaveChanges();
                     }
                     catch (Exception e)
                     {
@@ -68,9 +69,9 @@ namespace Repository
         {
             try
             {
-                using (var context = new ModelContainer())
+                using (Context db = new Context())
                 {
-                    return context.RestaurantJeu.ToList();
+                    return db.Restaurants.ToList();
                 }
             }
 
@@ -84,9 +85,9 @@ namespace Repository
         {
             try
             {
-                using (var context = new ModelContainer())
+                using (Context db = new Context())
                 {
-                    return context.RestaurantJeu.First(c => c.ID == restaurantID);
+                    return db.Restaurants.First(c => c.ID == restaurantID);
                 }
             }
 
@@ -96,14 +97,14 @@ namespace Repository
             }
         }
 
-        public static void MAJRestaurant(Restaurant restaurant)
+        /*public static void MAJRestaurant(Restaurant restaurant)
         {
             try
             {
-                using (var context = new ModelContainer())
+                using (Context db = new Context())
                 {
-                    Restaurant RestaurantOriginal = context.RestaurantJeu.First(c => c.ID == restaurant.ID);
-                    context.RestaurantJeu.ApplyCurrentValues(restaurant);
+                    Restaurant RestaurantOriginal = db.Restaurants.First(c => c.ID == restaurant.ID);
+                    db.Restaurants.ApplyCurrentValues(restaurant);
                     context.SaveChanges();
                 }
             }
@@ -111,6 +112,6 @@ namespace Repository
             {
                 throw new Exception("Erreur repository : erreur de mise a jour de restaurant", e);
             }
-        }   
+        }  */ 
     }
 }

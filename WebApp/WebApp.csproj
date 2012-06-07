@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -136,6 +139,10 @@
     <ProjectReference Include="..\Metier\Metier.csproj">
       <Project>{7F28FB43-E468-4C91-910D-14FDB6FB2462}</Project>
       <Name>Metier</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{0E2A6933-6738-442D-AA16-2AFF3002318A}</Project>
+      <Name>Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

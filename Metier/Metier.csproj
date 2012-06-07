@@ -31,7 +31,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
@@ -51,8 +55,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{0E2A6933-6738-442D-AA16-2AFF3002318A}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Repository\Repository.csproj">
       <Project>{09D3CD46-98EF-44E4-8871-86D1A43C7F0F}</Project>
       <Name>Repository</Name>

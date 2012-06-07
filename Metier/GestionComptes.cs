@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web.Security;
 using Repository;
-using Poco;
+using Models;
 
 namespace Metier
 {
@@ -16,7 +16,7 @@ namespace Metier
 
             try
             {
-                GestionPersonne.Ajouter(personne);
+                //GestionPersonne.Ajouter(personne);
 
                 if (sendConfirmation)
                 {
@@ -43,12 +43,14 @@ namespace Metier
         {
             try
             {
-                Personne personne = GestionPersonne.RecupererParEmailEtPassword(username, password);
+                //Personne personne = GestionPersonne.RecupererParEmailEtPassword(username, password);
 
-                if (personne != null)
+                /*if (personne != null)
                     return true;
                 else
-                    return false;
+                    return false;*/
+
+                return false;
             }
             catch (Exception e)
             {
@@ -90,7 +92,7 @@ namespace Metier
         {
             try
             {
-                GestionPersonne.Supprimer(GestionPersonne.RecupererParNom(username));
+                //GestionPersonne.Supprimer(GestionPersonne.RecupererParNom(username));
                 return true;
             }
             catch (Exception e)

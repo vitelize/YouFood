@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Models
 {
@@ -12,5 +10,7 @@ namespace Models
         public int RestaurantID { get; set; }
 
         //
+        public Serveur ServeurActif { get; set; }
+        public List<Table> Tables { get; set; }
     }
 }
